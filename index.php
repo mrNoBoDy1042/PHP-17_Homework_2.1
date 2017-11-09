@@ -1,6 +1,7 @@
 <?php
 $json = file_get_contents('data.json');
 $json = json_decode($json, true);
+$keys = array('firstName','lastName','address','phoneNumber');
 ?>
 <meta charset="utf-8">
 <table border="1">
@@ -10,8 +11,7 @@ $json = json_decode($json, true);
     <td><strong>Адрес</strong></td>
     <td><strong>Телефон</strong></td>
   </tr>
-  <?php foreach ($json as $person) {
-    $keys = array_keys($person); ?>
+  <?php foreach ($json as $person) {?>
     <tr>
       <?php foreach ($keys as $value) {
         echo "<td>$person[$value]</td>";
